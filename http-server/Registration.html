@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Regiistration Form</title>
+    <style>
+        input#name,#email :invalid:focus{
+            border-color:#e53e3e;
+        }
+    </style>
+</head>
+
+<body style="background: beige;">
+    <div class="relative flex min-h-screen  flex-col  justify-center overflow-hidden py-6 bg-red">
+        <div class="relative bg-gray px-6 pt-5 pb-5 shadow-xl ring-1 ring-white-900/5 sm:mx-auto sm:max-w-lg sm:rounded-lg sm:px-10 ">
+            <div class="mx-auto max-w-md">
+                <h2 class="text-2xl text-center font-bold leading-tight">
+                    Registration Form
+                </h2>
+
+                <div class="divide-y divide-white-300/50">
+                    <form action="" id="UF">
+                        <label for="name" class="text-md w-40 inline-block font-medium leading-5 text-black">Name</label>
+                        <input required type="text" id="name" name="name" class="bg-gray-100 inline-block rounded-lg shadow-md px-6 py-3 mb-5 text-base leading-6 placeholder-focus:invalid:border-green-500 focus:invalid:ring-green-500" placeholder="Type the Name">
+
+                        <label for="Email" class="text-md w-40 inline-block font-medium leading-5 text-black">Email-Id</label>
+                        <input required type="Email" id="email" name="email" class="bg-gray-100 inline-block rounded-lg shadow-md px-6 py-3 mb-5 text-base leading-6 placeholder-focus:invalid:border-green-500 focus:invalid:ring-green-500" placeholder="Type the Email">
+
+
+
+                        <label for="Password" class="text-md w-40 inline-block font-medium leading-5 text-black">PassWord</label>
+                        <input required type="password" id="pass" name="password" class="bg-gray-100 inline-block rounded-lg shadow-md px-6 py-3 mb-5 text-base leading-6 placeholder-focus:invalid:border-green-500 focus:invalid:ring-green-500" placeholder="**********">
+
+
+                        <label for="dob" class="text-md w-40 inline-block font-medium leading-5 text-black">Date of Birth</label>
+                        <input required type="date" id="dob" name="dob" class="bg-gray-100 inline-block rounded-lg shadow-md px-6 py-3 mb-5 text-base leading-6 placeholder-focus:invalid:border-green-500 focus:invalid:ring-green-500" >
+
+
+                        <label for="AgreeTerms" class="text-md w-40 inline-block font-medium leading-5 text-black">Agree TERMS & CONDITIONS</label>
+                        <input required type="checkbox" id="AgreeTerms" name="AgreeTerms" class="bg-gray-100 inline-block rounded-lg shadow-md px-6 py-3 mb-5 text-base leading-6 placeholder-focus:invalid:border-green-500  focus:outline-none focus:invalid:ring-green-500" >
+
+                        <button type="submit" id="submit" class="w-fit rounded-lg shadow-lg px-8 py-5 text-white hover:bg-navy-500 focus:outline-none focus block" 
+                        style = "background-color: navy;">Submit</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="mx-auto">
+            <h3 class="text-xl text-center font-bold leading-center">ENTRIES</h3>
+            <table class='table-auto w-full'>
+                <tr>
+                <th class='px-4 py-2 '>name </th>
+                <th class='px-4 py-2 '>email </th>
+                <th class='px-4 py-2 '>Password </th>
+                <th class='px-4 py-2 '>Dob </th>
+                <th class='px-4 py-2 '>AgreeTerms </th>
+                </tr></table>
+            <div class="divide-y divide-white-300/50" id="user_entries"></div>
+        </div>
+    </div>
+   
+
+  
+    <script src="index.js"></script>
+</body>
