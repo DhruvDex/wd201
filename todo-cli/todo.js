@@ -15,7 +15,7 @@ const todoList = () => {
   
     const dueToday = () => {
       const today = new Date();
-      return all.filter(item=> item.dueDate === today);
+      return all.filter((item)=> item.dueDate === today);
     }
   
     const dueLater = () => {
