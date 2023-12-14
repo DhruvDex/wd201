@@ -1,6 +1,3 @@
-
-
-/* eslint-disable no-undef */
 const todoList = require("../todo");
 
 describe("TodoList Test Suite", () => {
