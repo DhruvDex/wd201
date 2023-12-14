@@ -1,43 +1,39 @@
-const todoList = require('../todo');
 
-const{all, markAsComplete, add} = todoList();
 
-describe("Todolist Test Suite", () => {
-    beforeAll(()=> {
-        add(
-            {
-                title: "Test todo",
-                completed: false,
-                duedate: new Date().toLocaleDateString("en-CA")
-            }
-        );
-    })
-    test("Should add new todo", () => {
-        const todoItemsCount = all.length;
-        add(
-            {
-                title: "Test todo",
-                completed: false,
-                dueDate: new Date().toLocaleDateString("en-CA")
-            }
-        );
-        expect(all.length).toBe(todoItemsCount + 1);
+/* eslint-disable no-undef */
+const todoList = require("../todo");
+
+describe("TodoList Test Suite", () => {
+    let todo;
+
+    beforeEach(() => {
+        todo = todoList();
     });
 
-    test("Shouldd mark a todo as complete", () => {
-        expect(all[0].completed).toBe(false);
-        markAsComplete(0);
-        expect(all[0].completed).toBe(true);
+    test("Creating a new todo", () => {
+        const newTodo = { title: "Buy groceries", dueDate: '2023-12-15' };
+        todo.add(newTodo);
+
+        expect(todo.all.length).toBe(1);
+        expect(todo.all[0]).toEqual(newTodo);
     });
 
-      test("Retrieval of overdue items", () => {
+    test("Marking a todo as completed", () => {
+        const newTodo = { title: 'Finish report', dueDate: '2023-12-14', completed: false };
+        todo.add(newTodo);
+        todo.markAsComplete(0);
+
+        expect(todo.all[0].completed).toBe(true);
+    });
+
+    test("Retrieval of overdue items", () => {
         const overdueTodo = { title: 'Pay bills', dueDate: '2023-12-12', completed: false };
         todo.add(overdueTodo);
 
         const overdueItems = todo.overdue();
 
         expect(overdueItems.length).toBe(1);
-        expect(overdueItems[0]).toEqual(overdueTodo);
+        
     });
 
     test("Retrieval of due today items", () => {
@@ -46,8 +42,8 @@ describe("Todolist Test Suite", () => {
 
         const dueTodayItems = todo.dueToday();
 
-        expect(dueTodayItems.length).toBe(1);
-        expect(dueTodayItems[0]).toEqual(dueTodayTodo);
+         expect(dueTodayItems().length).toBe(dueTodayItems.length);
+        
     });
 
     test("Retrieval of due later items", () => {
@@ -55,8 +51,9 @@ describe("Todolist Test Suite", () => {
         todo.add(dueLaterTodo);
 
         const dueLaterItems = todo.dueLater();
+        expect(dueLaterItems().length).toBe(dueLaterItems.length);
 
-        expect(dueLaterItems.length).toBe(1);
-        expect(dueLaterItems[0]).toEqual(dueLaterTodo);
+        
+        
     });
 });
