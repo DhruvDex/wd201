@@ -14,3 +14,10 @@
     "jest": "^29.4.3"
   }
 }
+
+"lint-staged": {
+  "*.js": [
+    "eslint",
+    "prettier --write ."
+  ]
+}
