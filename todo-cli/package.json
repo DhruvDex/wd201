@@ -1,0 +1,26 @@
+ {
+  "name": "http-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \\\"Error: no test specified\\\" && exit 1",
+    "prepare": "cd .. && husky install todo-cli/.husky"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint",
+      "prettier --write ."
+    ]
+  },
+  "author": "Akash Kumar <akash.202204054@tulas.edu.in.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.54.0",
+    "eslint-plugin-react": "^7.33.2",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.1.0",
+    "minimist": "^1.2.8",
+    "prettier": "^3.1.0"
+  }
+}
