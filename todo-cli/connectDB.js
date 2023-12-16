@@ -13,8 +13,28 @@ const sequelize = new Sequelize(database, username, password, {
 sequelize
   .authenticate()
   .then(() => {
-    console.log("Connection has been established successfully.");
-  })
-  .catch((error) => {
-    console.error("Unable to connect to the database:", error);
-  });
+    async function connectToDatabase() {
+        try {
+          await sequelize.authenticate();
+          console.log("Connection has been established successfully.");
+          // Additional database-related code can go here
+        } catch (error) {
+          console.error("Unable to connect to the database:", error);
+          process.exit(1);
+        }
+      }
+      
+      connectToDatabase();
+   
+    });
+
+
+    module.exports = {
+        connect,
+        sequelize
+      }
+
+
+
+      
+ 
